@@ -1,3 +1,7 @@
+var sink = require('../src/sink.js');
+var start = sink.start;
+sink = sink.sink;
+
 sink('first pass', function (test, ok, before, after) {
 
   before(function () {
@@ -33,7 +37,7 @@ sink('secondary set', function (t, k, b, a) {
 
   t('many talented people cannot count to three', 3, function () {
     k(1, 'one');
-    k(2, 'two');
+    k(!function(){return true;}(), 'two');
     k(3, 'three');
   });
 
